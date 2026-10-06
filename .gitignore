@@ -1,0 +1,8 @@
+*.d
+*.o
+*.elf
+*.nrm
+*.map
+build/
+RecompModTool
+RecompModTool.exe

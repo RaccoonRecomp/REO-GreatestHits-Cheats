@@ -1,0 +1,293 @@
+[manifest]
+id = "REO_GreatestHits_Cheats"
+version = "1.2.1"
+display_name = "Resident Evil Outbreak — Greatest Hits Cheats"
+description = """
+All of the Greatest Hits cheats for Resident Evil Outbreak (NTSC-U), SLUS-20765 disc version 2.00: the disc this recompilation runs. Its game code has the Greatest Hits memory layout, which is what these codes were made for.
+Separate from "Resident Evil Outbreak — Cheats" (the regular cheat set): enable only one of the two.
+
+Master Code: Enable Code (Must Be On) by Code Master (CodeBreaker v7+). Must be On for the cheats below.
+
+The 19 cheats of your CodeBreaker v7 list, each its own option with its code:
+- 1-Hit Deaths (Enemies)
+- Become A Zombie After Death (Offline Mode)
+- Character 2 (CPU) Modifier
+- Character 3 (CPU) Modifier
+- Don't Become A Zombie Over Time
+- Don't Become A Zombie When Bitten
+- Enemies Don't Damage You With Attacks
+- Extra Ammo
+- Go It Alone
+- Infinite Ammo
+- Infinite Health
+- Infinite Item Usage
+- Infinite Time
+- Max Infinite Ammo
+- P1 Press L1+Select For Infection 100%
+- Unlock All NPC's
+- Unlock All Scenarios
+- Unlock Infinity Mode
+- Walk Through Walls & On Air R2 Up On/R2 Down Off
+
+The other codes of your Greatest Hits pnach:
+- All Costumes
+- Have All Collection Available For Purchase
+- Have All Collection Purchased
+- Infinite Reward Points
+- Max Reward Points
+- Infinite Rewards Points Usage
+
+Fixed for your disc: Infinite Health, Infinite Item Usage, Max Infinite Ammo, Unlock All NPC's. Save data gets only values the game itself can write. Infinite Time acts only in online play (not available yet); Infinite Rewards Points Usage and Max Inventory are not active.
+"""
+short_description = "All 19 of the Greatest Hits CodeBreaker v7 cheats (+ the pnach's collection codes) for Resident Evil Outbreak NTSC-U v2.00"
+authors = [ "RaccoonRecomp" ]
+# The game id of the disc this recompilation runs (SLUS-20765 v2.00, the Greatest Hits memory layout); the same
+# id REO_Cheats and REO_ModernCam use for it.
+game_id = "reo"
+minimum_recomp_version = "1.0.0"
+dependencies = []
+native_libraries = []
+
+[inputs]
+elf_path = "build/mod.elf"
+mod_filename = "REO_GreatestHits_Cheats"
+# Function reference symbols for SLUS-20765 v2.00 (this mod references no game functions).
+func_reference_syms_file = "syms/reo.syms.toml"
+data_reference_syms_files = []
+additional_files = [ "thumb.png" ]
+
+[[manifest.config_options]]
+id = "master_code"
+name = "Master Code (CodeBreaker v7+): Enable Code (Must Be On) by Code Master"
+description = "Must be On for every cheat of this mod, like the master code on a CodeBreaker. Off switches all of them off and puts the game's original code back.\n\nEnable Code (Must Be On) by Code Master\nCodebreaker v7+\nB4336FA9 4DFEFB79\n62838F11 EF8D0773\n3945B15D EB4129EF\n535F17F1 63E46A24\n\nThere is no cheat device in the recompiled game, so the code's hook is never written into the game: this switch does its job instead (see README)."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "one_hit_kills"
+name = "1-Hit Deaths (Enemies)"
+description = "1-Hit Deaths (Enemies) by Code Master, Lajos Szalay, Jay007, VirusPunk, Jarnold83\nCodebreaker v7+\n140BD47B E5A3FA24\n8BC46491 2A3E2920\n\nYour Greatest Hits pnach: D06407F4 0000882D / 20640800 A6620138\n\nOn your disc: Works as written: any hit kills an enemy (the damage of the hit is set to 0x7FFF)."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "zombie_after_death"
+name = "Become A Zombie After Death (Offline Mode)"
+description = "Become A Zombie After Death (Offline Mode) by Code Master, Lajos Szalay, Jay007, VirusPunk, Jarnold83\nCodebreaker v7+\n1B2D099A BA9248A5\n3A4AC368 C6DECBB8\n\nYour Greatest Hits pnach: D065FD14 0000202D / 1065FD3A 00001000\n\nOn your disc: Works as written: when you die you come back as a playable zombie, as in online play, instead of YOU DIED."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "character_2"
+name = "Character 2 (CPU) Modifier"
+description = "Character 2 (CPU) Modifier by 47iscool\nCodebreaker v7+\n004A78A8 000000??\n\nYour Greatest Hits pnach (the pnach writes FF; your CodeBreaker list leaves the value ?? to choose): 004A78A8 000000FF\n\nOn your disc: Works: choose the character of your first CPU partner. ?? is the game's character number, read from your disc: Kevin 00, Mark 01, Jim 02, George 03, David 04, Alyssa 05, Yoko 06, Cindy 07, or FF for no partner (as Go It Alone). Off leaves the game's choice. Applies from the next scenario on, in every scenario of a session: the game clears the players' data when a scenario ends and again when it sets up the next one, then creates the partners from this byte when that scenario starts. A partner is never changed in the middle of a scenario: a choice made during a scenario applies at the next one."
+type = "Enum"
+options = [ "Off", "Kevin", "Mark", "Jim", "George", "David", "Alyssa", "Yoko", "Cindy", "No partner (FF)" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "character_3"
+name = "Character 3 (CPU) Modifier"
+description = "Character 3 (CPU) Modifier by 47iscool\nCodebreaker v7+\n004A8988 000000??\n\nYour Greatest Hits pnach (the pnach writes FF; your CodeBreaker list leaves the value ?? to choose): 004A8988 000000FF\n\nOn your disc: Works: choose the character of your second CPU partner. ?? is the game's character number, read from your disc: Kevin 00, Mark 01, Jim 02, George 03, David 04, Alyssa 05, Yoko 06, Cindy 07, or FF for no partner (as Go It Alone). Off leaves the game's choice. Applies from the next scenario on, in every scenario of a session: the game clears the players' data when a scenario ends and again when it sets up the next one, then creates the partners from this byte when that scenario starts. A partner is never changed in the middle of a scenario: a choice made during a scenario applies at the next one."
+type = "Enum"
+options = [ "Off", "Kevin", "Mark", "Jim", "George", "David", "Alyssa", "Yoko", "Cindy", "No partner (FF)" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "no_zombie_over_time"
+name = "Don't Become A Zombie Over Time"
+description = "Don't Become A Zombie Over Time by Code Master, Lajos Szalay, Jay007, VirusPunk, Jarnold83\nCodebreaker v7+\n84992637 2E37F659\nA78B1F13 7E057998\n\nYour Greatest Hits pnach: D0667E54 00009FA4 / 20667E5C 00000000\n\nOn your disc: Works as written: the virus gauge no longer rises with time (you and the partners). Also on while No Infection / Freeze Infection is On."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "no_zombie_when_bitten"
+name = "Don't Become A Zombie When Bitten"
+description = "Don't Become A Zombie When Bitten by Code Master, Lajos Szalay, Jay007, VirusPunk, Jarnold83\nCodebreaker v7+\nD8E42593 718C544E\nDE34597D 8B407F17\n\nYour Greatest Hits pnach: D066015C 00009FE4 / 20660160 00000000\n\nOn your disc: Works as written: bites no longer raise the virus gauge (you and the partners). Also on while No Infection / Freeze Infection is On."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "no_infection"
+name = "No Infection / Freeze Infection"
+description = "Your own switch (not a code of its own): turns on both Don't Become A Zombie Over Time and Don't Become A Zombie When Bitten, which also have their own switches: the virus gauge no longer rises, for you and the partners."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "infection_freeze_value"
+name = "Infection Freeze Value (%)"
+description = "Not active: the Greatest Hits cheat set has no virus gauge code, so No Infection / Freeze Infection freezes the gauge at its current value whatever this is set to. (100 % would be death.)"
+type = "Number"
+min = 0
+max = 100
+step = 1
+precision = 0
+percent = false
+default = 0
+
+[[manifest.config_options]]
+id = "no_enemy_damage"
+name = "Enemies Don't Damage You With Attacks"
+description = "Enemies Don't Damage You With Attacks by Code Master, Lajos Szalay, Jay007, VirusPunk, Jarnold83\nCodebreaker v7+\n6D1B5F75 4AD28BCF\nAF1D3E83 14A4650D\n\nYour Greatest Hits pnach: D0660B0C 0000802D / 20660B18 00000000\n\nOn your disc: Works as written: enemy attacks take no HP from you or the partners. Bites and grabs still raise the virus gauge."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "extra_ammo"
+name = "Extra Ammo"
+description = "Extra Ammo by Code Master, Lajos Szalay, Jay007, VirusPunk, Jarnold83\nCodebreaker v7+\n28E323AA DFEA4D9A\nF1A7F593 3916B184\n\nYour Greatest Hits pnach: D05B1FF8 00001E3C / 105B2008 00000001\n\nOn your disc: Works as written: every shot adds a round instead of using one. Infinite Ammo, Extra Ammo and Max Infinite Ammo change the same instructions, so only one of them works at a time: if more than one is On, Max Infinite Ammo is used, else Extra Ammo, else Infinite Ammo."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "go_it_alone"
+name = "Go It Alone"
+description = "Go It Alone by 47iscool\nCodebreaker v7+\n004A78A8 000000FF\n004A8988 000000FF\n\nYour Greatest Hits pnach: 004A78A8 000000FF / 004A8988 000000FF\n\nOn your disc: Works as written: no CPU partners (both partners get FF), \"basically the same thing as Lone Wolf Mode\" (47iscool). Overrides the Character 2 and 3 choices. Applies from the next scenario on, in every scenario of a session: the game clears the players' data when a scenario ends and again when it sets up the next one, and when that scenario starts it creates no partner from FF. Partners already in a scenario are never removed in the middle of it: switched on during a scenario, it applies at the next one."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "infinite_ammo"
+name = "Infinite Ammo"
+description = "Infinite Ammo by Code Master\nCodebreaker v7+\n28E323AA DFEA4D9A\nC05C0212 C913FE27\n\nYour Greatest Hits pnach: D05B1FF8 00001E3C / 205B200C 00000000\n\nOn your disc: Works as written: firing does not use up rounds. Infinite Ammo, Extra Ammo and Max Infinite Ammo change the same instructions, so only one of them works at a time: if more than one is On, Max Infinite Ammo is used, else Extra Ammo, else Infinite Ammo."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "infinite_health"
+name = "Infinite Health"
+description = "Infinite Health by Code Master\nCodebreaker v7+\nF8BD46AB 776D98DB\n199D7A0E D1E356B5\nEB9C4A66 F817FA36\n\nYour Greatest Hits pnach: E0023881 00660794 / 20660800 2403270F / 20660808 AE030544\n\nOn your disc: Works, fixed for your disc: guard E0024200 006607F4 (the pnach kept the regular release's guard address, which on your disc is another function) and the HP stored as 16 bits (A6030544 instead of AE030544, which also zeroed max HP). HP is set to 9999 whenever the game checks for death (you and the CPU partners)."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "infinite_items"
+name = "Infinite Item Usage"
+description = "Infinite Item Usage by Code Master, Lajos Szalay, Jay007, VirusPunk, Jarnold83\nCodebreaker v7+\nAAE56582 2CAA4391\n09E05936 A4941FA4\nCEB1C3CE A106F69E\n2C57061E 2E187B84\n\nYour Greatest Hits pnach: E0031E3D 005B2178 / 205B218C 00000000 / 205B21A0 00000000 / 205B51B4 00000000\n\nOn your disc: Works, fixed for your disc: guard E0031E3C 005B2178 (the pnach's 1E3D is one too high: your disc holds 00121E3C there). Using a consumable item does not use it up (you and the partners)."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "infinite_time"
+name = "Infinite Time"
+description = "Infinite Time by Code Master, Lajos Szalay, Jay007, VirusPunk, Jarnold83\nCodebreaker v7+\nF88D3C42 ED0F0476\n2996B082 931BAA43\n\nYour Greatest Hits pnach: D068C77C 00001821 / 2068C784 00000000\n\nOn your disc: Only acts in online play; online play is not available yet. The code fits your disc and is applied as written, but its instruction lies in the game's online event-script interpreter, which offline play never runs, so offline it changes nothing. Nothing else is done in its place."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "max_infinite_ammo"
+name = "Max Infinite Ammo"
+description = "Max Infinite Ammo by Code Master, Lajos Szalay, Jay007, VirusPunk, Jarnold83\nCodebreaker v7+\n28E323AA DFEA4D9A\n88BD3706 23FC7AA7\n\nYour Greatest Hits pnach: D05B1FF8 00001E3C / 205B2008 24030063\n\nOn your disc: Fixed for your disc: 205B2008 24020063 (li v0,99). As written it puts 99 into v1, but the game stores v0, so the count drops to 1 and stays there. Fixed, the first shot sets the count to 99 and it stays 99. Infinite Ammo, Extra Ammo and Max Infinite Ammo change the same instructions, so only one of them works at a time: if more than one is On, Max Infinite Ammo is used, else Extra Ammo, else Infinite Ammo."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "infection_100_joker"
+name = "P1 Press L1+Select For Infection 100%"
+description = "P1 Press L1+Select For Infection 100% by Code Master, Lajos Szalay, Jay007, VirusPunk, Jarnold83\nCodebreaker v7+\nFD6430A9 14416489\n75FC5FC6 A0A9BE55\n252F9E14 0A358416\nEF5E3E39 CF1DA925\n\nYour Greatest Hits pnach: D02B081C 0000FBFE / 20667E28 24900000 / D02B081C 0000FFFF / 20667E28 4410B800\n\nOn your disc: Works as written, and it KILLS: while L1+Select is held, the next virus-gauge update (about once a second) sets the infection of EVERY character (you and the partners) to 100 %, and 100 % is death. L1+Select also opens and closes the pause menu, and the gauge is not updated while the game is paused: press Select to pause, then hold L1+Select. Releasing every button puts the game's code back. It does nothing while Don't Become A Zombie Over Time or No Infection / Freeze Infection is On."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "unlock_all_npcs"
+name = "Unlock All NPC's"
+description = "Unlock All NPC's by Code Master, Lajos Szalay, Jay007, VirusPunk, Jarnold83\nCodebreaker v7+\n44124010 EEA76388\n0CF49BDF A4E29C32\n\nYour Greatest Hits pnach: 4031FB6D 00030001 / FFFFFFFF 00000000\n\nOn your disc: Fixed for your disc: the 40 NPCs of your disc's collection become selectable (character select). As written the code fills the bytes 0x0031FB6D-0x0031FB78, one byte off the game's NPC words 0x0031FB6C-0x0031FB77: it misses U.S.S.1, writes a byte outside the NPC words, and turns on dozens of NPC entries no purchase unlocks. The mod sets exactly the bits the game's own unlock code sets for its 20 NPC items. Writes your save data (kept when the game saves), only once your save data is loaded or created. Unlocked things stay unlocked after turning this Off, as with a normal unlock."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "unlock_all_scenarios"
+name = "Unlock All Scenarios"
+description = "Unlock All Scenarios by Code Master, Lajos Szalay, Jay007, VirusPunk, Jarnold83\nCodebreaker v7+\n3C36A473 FB276FFB\n\nYour Greatest Hits pnach: 20323BD8 FFFFFFFF\n\nOn your disc: Works, only valid save data: the five scenario bits (0x0000001F) instead of 0xFFFFFFFF (the game uses bits 0-4 only). All five scenarios can be selected. Writes your save data (kept when the game saves), only once your save data is loaded or created. Unlocked things stay unlocked after turning this Off, as with a normal unlock."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "unlock_infinity_mode"
+name = "Unlock Infinity Mode"
+description = "Unlock Infinity Mode by Code Master, Lajos Szalay, Jay007, VirusPunk, Jarnold83\nCodebreaker v7+\n93BAE998 45A83A76\n\nYour Greatest Hits pnach: 2031FB7C FFFFFFFF\n\nOn your disc: Works, only valid save data: sets the two bits the game sets when you buy the collection's INFINITY MODE and LONE WOLF MODE (byte 0x0031FB7F, 0x04 and 0x01) instead of all 32 bits of 0x0031FB7C. Character select then offers PARTNER MODE: LONE WOLF MODE, as with the code as written. Writes your save data (kept when the game saves), only once your save data is loaded or created. Unlocked things stay unlocked after turning this Off, as with a normal unlock."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "walk_through_walls"
+name = "Walk Through Walls & On Air R2 Up On/R2 Down Off"
+description = "Walk Through Walls & On Air R2 Up On/R2 Down Off by 47iscool\nCodebreaker v7+\nE002FDEF 002B081C\n206636D0 03E00008\n206636D4 00000000\nE002FDBF 002B081C\n206636D0 27BDFFC0\n206636D4 FFBF0020\n\nYour Greatest Hits pnach: E002FDEF 002B081C / 206636D0 03E00008 / 206636D4 00000000 / E002FDBF 002B081C / 206636D0 27BDFFC0 / 206636D4 FFBF0020\n\nOn your disc: Works as written (a joker): with this switch On, press R2+Up to walk through walls and objects (your height stays where it is, \"on air\"), R2+Down to turn it off again. \"Works most of the time\" (47iscool). Turning the switch Off also turns it off."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "all_costumes"
+name = "All Costumes"
+description = "All Costumes by Code Master, Lajos Szalay, Jay007, VirusPunk, Jarnold83\nCodebreaker v7+: not in your CodeBreaker list; from your Greatest Hits pnach\n\nYour Greatest Hits pnach (section Unlock Costume Codes\\All Costumes): 2031FB64 FFFFFFFF / 2031FB68 FFFFFFFF\n\nOn your disc: Works, only valid save data: the costume bits the game's collection sets for its 11 costume items (0x01010101 and 0x03030301) instead of all 64 bits. Character select offers \"Select A Type\". Kept from your original Greatest Hits file (your updated copy does not have it). Writes your save data (kept when the game saves), only once your save data is loaded or created. Unlocked things stay unlocked after turning this Off, as with a normal unlock."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "collection_available"
+name = "Have All Collection Available For Purchase"
+description = "Have All Collection Available For Purchase by Code Master, Lajos Szalay, Jay007, VirusPunk, Jarnold83\nCodebreaker v7+: not in your CodeBreaker list; from your Greatest Hits pnach\n\nYour Greatest Hits pnach (section Collection Codes\\...): 40323BF4 00060001 / FFFFFFFF 00000000\n\nOn your disc: Works, only valid save data: the bits of the 172 collection items instead of 192 bits. Every item can be bought. Writes your save data (kept when the game saves), only once your save data is loaded or created. Unlocked things stay unlocked after turning this Off, as with a normal unlock."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "collection_purchased"
+name = "Have All Collection Purchased"
+description = "Have All Collection Purchased by Code Master, Lajos Szalay, Jay007, VirusPunk, Jarnold83\nCodebreaker v7+: not in your CodeBreaker list; from your Greatest Hits pnach\n\nYour Greatest Hits pnach (section Collection Codes\\...): 40323C54 00060001 / FFFFFFFF 00000000\n\nOn your disc: Works, only valid save data: exactly the bits a purchase of every one of the 172 items writes (including the two other arrays the game's purchase code sets for the first 12 items). Every item shows as owned. Writes your save data (kept when the game saves), only once your save data is loaded or created. Unlocked things stay unlocked after turning this Off, as with a normal unlock."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "infinite_reward_points"
+name = "Infinite Reward Points"
+description = "Infinite Reward Points by Code Master, Lajos Szalay, Jay007, VirusPunk, Jarnold83\nCodebreaker v7+: not in your CodeBreaker list; from your Greatest Hits pnach\n\nYour Greatest Hits pnach (section Collection Codes\\...): 1031FB60 0000FFFF\n\nOn your disc: Works as written: the low 16 bits of your points are held at FFFF (65,535 points from a lower total), so buying never runs them out; never above the game's own limit, 999,999,999. Max Reward Points and Infinite Reward Points write the same word: if both are On, Max Reward Points is used. Writes your save data (kept when the game saves), only once your save data is loaded or created. Unlocked things stay unlocked after turning this Off, as with a normal unlock."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "max_reward_points"
+name = "Max Reward Points"
+description = "Max Reward Points by Code Master, Lajos Szalay, Jay007, VirusPunk, Jarnold83\nCodebreaker v7+: not in your CodeBreaker list; from your Greatest Hits pnach\n\nYour Greatest Hits pnach (section Collection Codes\\...): 2031FB60 05F5E0FF\n\nOn your disc: Works as written: your points are held at 99,999,999 (the game's own limit is 999,999,999). Max Reward Points and Infinite Reward Points write the same word: if both are On, Max Reward Points is used. Writes your save data (kept when the game saves), only once your save data is loaded or created. Unlocked things stay unlocked after turning this Off, as with a normal unlock."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "infinite_reward_points_usage"
+name = "Infinite Rewards Points Usage"
+description = "Infinite Rewards Points Usage by Code Master, Lajos Szalay, Jay007, VirusPunk, Jarnold83\nCodebreaker v7+: not in your CodeBreaker list; from your Greatest Hits pnach\n\nYour Greatest Hits pnach (section Collection Codes\\...): E0020833 0057ADF4 / 2057AE08 00000000 / 1057AE16 00001000\n\nOn your disc: Not active: this code does not fit your disc. Its guard matches no code on it (the collection code, demo.bin, holds 0x2821 at 0x0057ADF4, and no other overlay has the pattern), and its second write would turn a store into a branch. This switch does nothing."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "max_inventory"
+name = "Max Inventory"
+description = "Not active: the Greatest Hits cheat set has no inventory code, so this switch does nothing."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"

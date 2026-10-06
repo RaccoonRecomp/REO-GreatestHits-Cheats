@@ -1,0 +1,5 @@
+# Function reference symbols for SLUS-20765 v2.00, the disc this recompilation runs (Greatest Hits memory layout).
+# Intentionally empty: this mod calls no game functions, so it needs no reference symbols.
+# Verified: building with an empty list and with the full list gives byte-identical .nrm files.
+# Mods that hook game functions need the recompiler's function list for this build here instead.
+section = []
