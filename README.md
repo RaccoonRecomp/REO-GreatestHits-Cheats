@@ -33,12 +33,11 @@ active and says so.
 - **Your own legal copy** of Resident Evil Outbreak (USA), SLUS-20765, disc version 2.00. This mod contains no disc
   image and no game files.
 
-> **Status.** Resident Evil Outbreak Recompiled 1.5.0 cannot start the game yet: the game's code still has to be
-> prepared from your own disc on your PC, and that automatic preparation comes in an update. You can install this mod
-> and set its switches now; they are saved. Once your copy of the game is prepared, the cheats marked **game data** or
-> **save data** take effect. The cheats marked **game code** also need their code sites compiled into the prepared
-> game: this download does not carry those sites, and the preparation update has to provide them. Until it does, the
-> Mods tab reports these cheats as changes of the game's code that are not in this game build.
+> **Status.** Resident Evil Outbreak Recompiled 1.5.0 prepares the game's code from your own disc on your PC. In the
+> prepared game the cheats marked **game data** or **save data** take effect. The cheats marked **game code** do not:
+> they need their code sites compiled into the prepared game, and this download does not carry those sites. The Mods
+> tab reports these cheats as changes of the game's code that are not in this game build. Your switches are saved
+> either way.
 
 The cheats marked **game code** in the table below never write the game's code directly: the program switches the
 matching code sites compiled into the prepared game code, so they act only in a game build that has this mod's sites.
